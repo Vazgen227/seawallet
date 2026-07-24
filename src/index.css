@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: Helvetica, Arial, sans-serif; }
+
+:root {
+    --bg-page-start: #0a4f55;
+    --bg-page-mid: #107980;
+    --bg-page-end: #0c6a70;
+    --bg-page: linear-gradient(160deg, var(--bg-page-start) 0%, var(--bg-page-mid) 50%, var(--bg-page-end) 100%);
+    --card-bg: linear-gradient(145deg, #ffffff, #F5EEE2);
+    --card-bg-glass: rgba(237, 225, 207, 0.1);
+    --input-bg: rgba(255, 255, 255, 0.7);
+    --input-bg-focus: #ffffff;
+    --text-primary: #107980;
+    --text-accent: #048390;
+    --text-accent-strong: #007661;
+    --text-muted: #B6ADAF;
+    --text-white: #ffffff;
+    --text-light-soft: #7FC4C0;
+    --text-subtle: #5BA199;
+    --text-secondary: #5c4a3a;
+    --border-soft: rgba(217, 197, 188, 0.5);
+    --border-strong: rgba(255, 255, 255, 0.6);
+    --surface-cream: #F5EEE2;
+    --surface-cream-strong: #DDBEAA;
+    --surface-panel: rgba(255, 255, 255, 0.05);
+    --stat-row-light: rgba(221, 190, 170, 0.3);
+    --item-bg: #ffffff;
+    --item-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.2);
+    --nav-surface: rgba(237, 225, 207, 0.95);
+    --nav-border: rgba(255, 255, 255, 0.4);
+    --accent-success: #4cb681;
+    --accent-success-deep: #0A3D33;
+    --accent-danger: #E53E3E;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root { --theme: dark; }
+}
+
+:root[data-theme="dark"] {
+    --bg-page-start: #061a1c;
+    --bg-page-mid: #0a3d42;
+    --bg-page-end: #072e32;
+    --bg-page: linear-gradient(160deg, var(--bg-page-start) 0%, var(--bg-page-mid) 50%, var(--bg-page-end) 100%);
+    --card-bg: linear-gradient(145deg, #1a2a2b, #152020);
+    --card-bg-glass: rgba(10, 40, 45, 0.6);
+    --input-bg: rgba(255, 255, 255, 0.06);
+    --input-bg-focus: rgba(255, 255, 255, 0.1);
+    --text-primary: #5BA199;
+    --text-accent: #4cb681;
+    --text-accent-strong: #2f9d78;
+    --text-muted: #6b6f76;
+    --text-white: #e2e8f0;
+    --text-light-soft: #7FC4C0;
+    --text-subtle: #9ec8bf;
+    --text-secondary: #d7d1c8;
+    --border-soft: rgba(91, 161, 153, 0.2);
+    --surface-cream: #1b2b2c;
+    --surface-cream-strong: #23393b;
+    --surface-panel: rgba(255, 255, 255, 0.08);
+    --stat-row-light: rgba(10, 60, 65, 0.5);
+    --item-bg: #0f2a2d;
+    --item-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.5);
+    --nav-surface: rgba(10, 40, 45, 0.95);
+    --nav-border: rgba(255, 255, 255, 0.16);
+    --accent-success: #4cb681;
+    --accent-success-deep: #9ce3c0;
+    --accent-success-bg: rgba(76, 182, 129, 0.14);
+    --accent-danger: #ff6b6b;
+    --accent-danger-bg: rgba(255, 107, 107, 0.16);
+    --accent-warning: #fbbf24;
+    --accent-warning-bg: rgba(251, 191, 36, 0.16);
+}
+
+:root[data-theme="light"] {
+    --bg-page-start: #0a4f55;
+    --bg-page-mid: #107980;
+    --bg-page-end: #0c6a70;
+    --bg-page: linear-gradient(160deg, var(--bg-page-start) 0%, var(--bg-page-mid) 50%, var(--bg-page-end) 100%);
+    --card-bg: linear-gradient(145deg, #ffffff, #F5EEE2);
+    --card-bg-glass: rgba(237, 225, 207, 0.1);
+    --input-bg: rgba(255, 255, 255, 0.7);
+    --input-bg-focus: #ffffff;
+    --text-primary: #107980;
+    --text-accent: #048390;
+    --text-accent-strong: #007661;
+    --text-muted: #B6ADAF;
+    --text-white: #ffffff;
+    --text-light-soft: #7FC4C0;
+    --text-subtle: #5BA199;
+    --text-secondary: #5c4a3a;
+    --border-soft: rgba(217, 197, 188, 0.5);
+    --border-strong: rgba(255, 255, 255, 0.6);
+    --surface-cream: #F5EEE2;
+    --surface-cream-strong: #DDBEAA;
+    --surface-panel: rgba(255, 255, 255, 0.05);
+    --stat-row-light: rgba(221, 190, 170, 0.3);
+    --item-bg: #ffffff;
+    --item-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.2);
+    --nav-surface: rgba(237, 225, 207, 0.95);
+    --nav-border: rgba(255, 255, 255, 0.4);
+    --accent-success: #4cb681;
+    --accent-success-deep: #0A3D33;
+    --accent-danger: #E53E3E;
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    min-height: 100svh;
+    background: var(--bg-page);
+    color: var(--text-primary);
+}
+
+#root {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+}

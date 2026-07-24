@@ -1,0 +1,475 @@
+/* ===== СТРАНИЦА ===== */
+.page {
+  min-height: 100vh;
+  background: var(--bg-page);
+  padding: 40px 20px 128px;
+  font-family: 'Inter', sans-serif;
+}
+
+.wrapper {
+  max-width: 448px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ===== ЗАГОЛОВОК ===== */
+.header {
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.headerLabel {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-light-soft);
+  margin-bottom: 8px;
+  opacity: 0.8;
+}
+
+.headerTitle {
+  font-size: 32px;
+  line-height: 1.1;
+  font-weight: 700;
+  color: var(--text-white);
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== КОНВЕРТЕР-КАРТОЧКА ===== */
+.converterCard {
+  background: var(--card-bg);
+  border-radius: 32px;
+  padding: 32px 24px;
+  box-shadow: 
+    0 24px 48px -12px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Строка «Сумма + валюта» */
+.currencyRow {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.amountInput {
+  flex: 1;
+  min-width: 0;
+  height: 60px;
+  padding: 0 20px;
+  background: var(--input-bg);
+  border-radius: 20px;
+  color: var(--text-primary);
+  font-weight: 700;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 22px;
+  border: 1px solid rgba(217, 197, 188, 0.5);
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.02);
+}
+
+.amountInput::placeholder {
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.amountInput:focus {
+  background: var(--input-bg-focus);
+  border-color: var(--text-accent);
+  box-shadow: 0 0 0 4px rgba(4, 131, 144, 0.15), inset 0 2px 6px rgba(0,0,0,0.02);
+}
+
+.currencySelect {
+  width: 104px;
+  height: 60px;
+  padding: 0 16px;
+  background: linear-gradient(135deg, var(--text-accent), var(--bg-page-end));
+  border-radius: 20px;
+  color: var(--text-accent);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(255,255,255,0.1);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5 1.5L6 6L10.5 1.5' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 36px;
+  box-shadow: 0 4px 12px rgba(4, 131, 144, 0.2);
+  transition: all 0.2s;
+}
+
+.currencySelect:hover {
+  filter: brightness(1.1);
+}
+
+.currencySelect option {
+  background: var(--bg-page-end);
+  color: var(--text-white);
+}
+
+/* Анимации для свапа */
+.rowAnimateDown {
+  animation: swapDown 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  position: relative;
+  z-index: 10;
+}
+
+.rowAnimateUp {
+  animation: swapUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  position: relative;
+  z-index: 20;
+}
+
+@keyframes swapDown {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(92px) scale(0.95); opacity: 0.7; }
+  100% { transform: translateY(184px) scale(1); opacity: 1; }
+}
+
+@keyframes swapUp {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-92px) scale(1.05); opacity: 1; }
+  100% { transform: translateY(-184px) scale(1); opacity: 1; }
+}
+
+/* Swap-кнопка между строками FROM/TO */
+.swapRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 4px 0;
+}
+
+.swapLine {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  height: 1px;
+  background: rgba(217, 197, 188, 0.5);
+}
+
+.swapBtn {
+  position: relative;
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--text-accent-strong), var(--text-accent));
+  border: 4px solid var(--text-white);
+  color: var(--text-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 12px rgba(0, 118, 97, 0.3);
+  font-size: 20px;
+}
+
+.swapBtn:active {
+  box-shadow: 0 2px 6px rgba(0, 118, 97, 0.3);
+}
+
+/* Подписи FROM / TO */
+.fieldLabel {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: var(--text-subtle);
+  margin-bottom: 6px;
+  padding-left: 4px;
+}
+
+/* Кнопка конвертации */
+.convertBtn {
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(135deg, var(--text-accent), var(--text-accent-strong));
+  color: var(--text-white);
+  font-weight: 700;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 0.05em;
+  font-size: 17px;
+  box-shadow: 0 12px 24px -6px rgba(4, 131, 144, 0.5);
+  margin-top: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.convertBtn::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 100%);
+  border-radius: 20px;
+}
+
+.convertBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -8px rgba(4, 131, 144, 0.6);
+}
+
+.convertBtn:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 4px 12px -4px rgba(4, 131, 144, 0.5);
+}
+
+.convertBtnDisabled {
+  composes: convertBtn;
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ===== РЕЗУЛЬТАТ ===== */
+.resultCard {
+  background: var(--card-bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 24px;
+  padding: 24px 32px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #EDE1CF;
+  text-align: center;
+}
+
+.resultRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.resultFrom {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.resultArrow {
+  font-size: 24px;
+  color: var(--accent-success);
+  opacity: 0.8;
+}
+
+.resultTo {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent-success);
+  text-shadow: 0 2px 10px rgba(76, 182, 129, 0.3);
+}
+
+.resultCurrency {
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0.8;
+  margin-left: 6px;
+  letter-spacing: 0.05em;
+}
+
+.resultRate {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.2);
+  font-size: 14px;
+  color: var(--text-light-soft);
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;
+}
+
+.resultRateLabel {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 10px;
+  color: var(--text-light-soft);
+  margin-bottom: 6px;
+}
+
+/* ===== ЗАГРУЗКА / ОШИБКА ===== */
+.loadingOverlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px;
+  background: rgba(4, 131, 144, 0.2);
+  border-radius: 20px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.errorBox {
+  padding: 16px 20px;
+  background: rgba(220, 38, 38, 0.15);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  border-radius: 20px;
+  color: #fca5a5;
+  font-size: 14px;
+  font-weight: 500;
+  backdrop-filter: blur(8px);
+}
+
+/* ===== ИСТОРИЯ ===== */
+.historySection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.historyHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+}
+
+.historyTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.clearBtn {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.clearBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.clearBtn:active {
+  transform: scale(0.96);
+}
+
+.historyList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.historyItem {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.historyItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.3);
+}
+
+.historyFrom {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.historyArrow {
+  color: var(--text-subtle);
+  font-size: 16px;
+  margin: 0 12px;
+  flex-shrink: 0;
+}
+
+.historyTo {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-accent-strong);
+}
+
+.historyRate {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-left: auto;
+  padding-left: 16px;
+}
+
+.historyCurrency {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-left: 4px;
+}
+
+/* ===== ПУСТОЕ СОСТОЯНИЕ ===== */
+.emptyState {
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.emptyIcon {
+  font-size: 40px;
+  margin-bottom: 16px;
+  opacity: 0.8;
+  filter: grayscale(0.5);
+}

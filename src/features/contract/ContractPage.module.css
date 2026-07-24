@@ -1,0 +1,454 @@
+/* ===== ОБЩИЕ ===== */
+.page {
+  min-height: 100vh;
+  background: var(--bg-page);
+  padding: 40px 20px 128px;
+  font-family: 'Inter', sans-serif;
+}
+
+.wrapper {
+  max-width: 448px;
+  margin: 0 auto;
+}
+
+.wrapperSpaced {
+  max-width: 448px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ===== ЗАГОЛОВОК ФОРМЫ ===== */
+.header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.headerLabel {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 10px;
+  font-weight: 700;
+  color: #7FC4C0;
+  margin-bottom: 8px;
+  opacity: 0.8;
+}
+
+.headerTitle {
+  font-size: 32px;
+  line-height: 1.1;
+  font-weight: 700;
+  color: var(--text-white);
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== КАРТОЧКА ФОРМЫ ===== */
+.formCard {
+  background: var(--card-bg);
+  border-radius: 32px;
+  padding: 32px 28px;
+  box-shadow: 
+    0 24px 48px -12px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* ===== ИНПУТЫ ===== */
+.input {
+  width: 100%;
+  min-width: 0;
+  height: 56px;
+  padding: 0 20px;
+  background: var(--input-bg);
+  border-radius: 20px;
+  color: var(--text-primary);
+  font-weight: 600;
+  border: 1px solid var(--border-soft);
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 16px;
+  box-sizing: border-box;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.02);
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.input:focus {
+  background: var(--input-bg-focus);
+  border-color: var(--text-accent);
+  box-shadow: 0 0 0 4px rgba(4, 131, 144, 0.15), inset 0 2px 6px rgba(0,0,0,0.02);
+}
+
+.inputMono {
+  composes: input;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 18px;
+}
+
+/* ===== СЕТКА 2 КОЛОНКИ ===== */
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ===== СЕКЦИЯ «ДОПОЛНИТЕЛЬНО» ===== */
+.extraSection {
+  padding-top: 24px;
+  margin-top: 12px;
+  border-top: 1px dashed rgba(217, 197, 188, 0.8);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.extraLabel {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* ===== КНОПКА «СОЗДАТЬ» ===== */
+.submitBtn {
+  width: 100%;
+  height: 60px;
+  margin-top: 20px;
+  background: linear-gradient(135deg, var(--text-accent), var(--text-accent-strong));
+  color: var(--text-white);
+  font-weight: 700;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 0.05em;
+  font-size: 17px;
+  box-shadow: 0 12px 24px -6px rgba(4, 131, 144, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.submitBtn::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 100%);
+  border-radius: 20px;
+}
+
+.submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -8px rgba(4, 131, 144, 0.6);
+}
+
+.submitBtn:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 4px 12px -4px rgba(4, 131, 144, 0.5);
+}
+
+/* ===== ТАБЫ КОНТРАКТОВ ===== */
+.tabsRow {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin: 0 -4px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.tabBtn {
+  padding: 12px 24px;
+  border-radius: 9999px;
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+
+.tabBtn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--text-white);
+}
+
+.tabBtnActive {
+  composes: tabBtn;
+  background: var(--accent-success);
+  color: var(--accent-success-deep);
+  border-color: var(--accent-success);
+  box-shadow: 0 8px 24px -6px rgba(76, 182, 129, 0.5);
+}
+
+.tabBtnActive:hover {
+  background: var(--accent-success);
+  color: var(--accent-success-deep);
+}
+
+/* ===== ШАПКА КОНТРАКТА ===== */
+.headerCard {
+  background: linear-gradient(135deg, var(--bg-page-end), var(--text-accent));
+  border-radius: 32px;
+  padding: 28px 32px;
+  color: var(--text-white);
+  box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
+}
+
+.headerCardLabel {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-light-soft);
+  margin-bottom: 8px;
+}
+
+.headerCardTitle {
+  font-size: 26px;
+  font-weight: 700;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.headerCardRank {
+  font-size: 15px;
+  color: var(--text-light-soft);
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* ===== КОЛЬЦЕВОЙ ИНДИКАТОР ===== */
+.ringCard {
+  background: var(--card-bg);
+  border-radius: 32px;
+  box-shadow: 
+    0 24px 48px -12px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.ringWrap {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.ringSvg {
+  width: 200px;
+  height: 200px;
+  transform: rotate(-90deg);
+  filter: drop-shadow(0 8px 16px rgba(4, 131, 144, 0.15));
+}
+
+.ringCenter {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ringElapsed {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.ringTotal {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--text-primary);
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+.ringPercent {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-accent-strong);
+  margin-top: 6px;
+  background: rgba(0, 118, 97, 0.1);
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+
+/* ===== СТАТИСТИКА ===== */
+.statsCard {
+  background: var(--card-bg);
+  border-radius: 32px;
+  box-shadow: 
+    0 24px 48px -12px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.statRowLight {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--stat-row-light);
+  padding: 20px 24px;
+  border-radius: 24px;
+}
+
+.statRowDark {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, var(--text-accent-strong), var(--text-accent));
+  padding: 24px;
+  border-radius: 24px;
+  color: var(--text-white);
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.2);
+}
+
+.statLabel {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+}
+
+.statLabelLight {
+  composes: statLabel;
+  color: var(--text-light-soft);
+}
+
+.statValue {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 24px;
+  margin-top: 6px;
+  line-height: 1;
+}
+
+.statValueSmall {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 16px;
+  margin-top: 6px;
+}
+
+.statValueBig {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 700;
+  font-size: 32px;
+  margin-top: 6px;
+  line-height: 1;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.statUnit {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  opacity: 0.8;
+}
+
+.statCurrency {
+  font-size: 14px;
+  font-weight: 500;
+  vertical-align: super;
+  opacity: 0.9;
+  text-transform: uppercase;
+}
+
+.textRight {
+  text-align: right;
+}
+
+/* ===== УПРАВЛЕНИЕ ===== */
+.actionsCard {
+  background: rgba(237, 225, 207, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 32px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.newVoyageBtn {
+  flex: 1;
+  height: 60px;
+  background: var(--input-bg-focus);
+  color: var(--text-primary);
+  font-weight: 700;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  border: none;
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.2);
+}
+
+.newVoyageBtn:hover {
+  background: var(--input-bg-focus);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.3);
+}
+
+.newVoyageBtn:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 4px 12px -4px rgba(0, 0, 0, 0.2);
+}
+
+.deleteBtn {
+  height: 60px;
+  padding: 0 32px;
+  background: var(--text-muted);
+  color: var(--text-white);
+  font-weight: 700;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 16px;
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.2);
+}
+
+.deleteBtn:hover {
+  background: var(--text-muted);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.3);
+}
+
+.deleteBtn:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 4px 12px -4px rgba(0, 0, 0, 0.2);
+}
