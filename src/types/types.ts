@@ -48,6 +48,7 @@ export interface Document {
   description?: string;
   category: DocumentCategory;
   dateExpired: string;
+  photoId?: string;
 }
 
 export type ChecklistItemStatus = "pending" | "accepted" | "rejected";

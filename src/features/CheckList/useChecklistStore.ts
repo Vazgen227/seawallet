@@ -9,6 +9,7 @@ interface ChecklistStore {
   addChecklistItem(data: Omit<ChecklistItem, "id">): void;
   removeChecklistItem(id: string): void;
   setItemStatus(id: string, status: ChecklistItemStatus): void;
+  updateDocumentPhoto: (id: string, photoId: string) => void;
 
   documents: Document[];
   addDocument(data: Omit<Document, "id">): void;
@@ -48,6 +49,11 @@ export const useChecklistStore = create<ChecklistStore>()(
           documents: state.documents.map((document) =>
             document.id === id ? { ...document, ...updates } : document,
           ),
+        })),
+        updateDocumentPhoto: (id: string, photoId: string) => set((state) => ({
+            documents: state.documents.map((doc) =>
+                doc.id === id ? { ...doc, photoId } : doc
+            )
         })),
     }),
     { name: "sea-checklist-storage" },
