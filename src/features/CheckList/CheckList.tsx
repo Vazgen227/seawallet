@@ -3,6 +3,7 @@ import { useState } from "react";
 import type { DocumentCategory } from "../../types/types";
 import { useContractStore } from "../../app/store/useContractStore";
 import styles from "./CheckList.module.css";
+import DocPhoto from './DocPhoto';
 
 
 export default function ChecklistPage() {
@@ -16,6 +17,8 @@ export default function ChecklistPage() {
     const removeChecklistItem = store.removeChecklistItem;
     const setItemStatus = store.setItemStatus;
     const addChecklistItem = store.addChecklistItem;
+    const updateDocument = store.updateDocument;
+    const updateDocumentPhoto = store.updateDocumentPhoto;
 
     const [newTaskTitle, setNewTaskTitle] = useState("");
     const [newTaskContractId, setNewTaskContractId] = useState<string | null>(null);
@@ -119,10 +122,17 @@ export default function ChecklistPage() {
                         : (
                             <div className={styles.itemList}>
                                 {documents.map(doc => {
+
                                     const days = getDaysUntilExpiry(doc.dateExpired);
                                     const style = getExpiryStyle(days);
                                     return (
                                         <div key={doc.id} className={styles.docItem}>
+                                            <DocPhoto
+                                                documentId={doc.id}
+                                                photoId={doc.photoId}
+                                                onPhotoSaved={(photoId) => updateDocumentPhoto(doc.id, photoId)}
+                                                onPhotoDeleted={() => updateDocument(doc.id, { photoId: undefined })}
+                                            />
                                             <div className={styles.docInfo}>
                                                 <span className={styles.docTitle}>{doc.title}</span>
                                                 <span className={styles.docCategory}>{doc.category}</span>
