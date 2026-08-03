@@ -1,86 +1,72 @@
 import { useNavigate } from 'react-router-dom';
 import s from './FaqPage.module.css';
+import { useTranslation } from 'react-i18next';
 
-const steps = [
-    { emoji: '📱', title: 'iPhone / iPad', steps: ['Открой приложение в Safari', 'Нажми кнопку «Поделиться» (квадрат со стрелкой вверх)', 'Выбери «На экран «Домой»»', 'Нажми «Добавить»'] },
-    { emoji: '🤖', title: 'Android', steps: ['Открой приложение в Chrome', 'Нажми три точки в правом верхнем углу', 'Выбери «Добавить на главный экран»', 'Нажми «Добавить»'] },
+const MODULES = [
+    { key: 'contract', icon: '📋' },
+    { key: 'currency', icon: '💱' },
+    { key: 'expenses', icon: '💸' },
+    { key: 'checklist', icon: '📄' },
+];
+
+const PLATFORMS = [
+    { emoji: '📱', key: 'ios' },
+    { emoji: '🤖', key: 'android' },
 ];
 
 export default function FaqPage() {
     const navigate = useNavigate();
+    const { t } = useTranslation();
 
     return (
         <div className={s.page}>
             <div className={s.wrapper}>
-                <button className={s.backBtn} onClick={() => navigate(-1)}>← Назад</button>
+                <button className={s.backBtn} onClick={() => navigate(-1)}>
+                    {t('faq.back')}
+                </button>
 
                 <div className={s.hero}>
                     <div className={s.heroIcon}>⚓</div>
                     <h1 className={s.heroTitle}>SeaWallet</h1>
-                    <p className={s.heroSub}>Финансовый помощник моряка</p>
+                    <p className={s.heroSub}>{t('faq.subtitle')}</p>
                 </div>
 
                 <div className={s.card}>
-                    <h2 className={s.cardTitle}>Что это?</h2>
-                    <p className={s.cardText}>
-                        SeaWallet — бесплатный инструмент для моряков. Помогает считать зарплату по контракту,
-                        конвертировать валюты, отслеживать расходы в рейсе и следить за сроками документов.
-                        Никаких аккаунтов, никаких серверов — все данные хранятся только на твоём телефоне.
-                    </p>
+                    <h2 className={s.cardTitle}>{t('faq.whatTitle')}</h2>
+                    <p className={s.cardText}>{t('faq.whatText')}</p>
                 </div>
 
                 <div className={s.card}>
-                    <h2 className={s.cardTitle}>Почему бесплатно?</h2>
-                    <p className={s.cardText}>
-                        Потому что это должно существовать. Моряки заслуживают нормальных инструментов,
-                        а не Excel-таблиц и калькулятора. MVP бесплатный навсегда —
-                        в будущем появятся дополнительные платные функции, но базовое останется бесплатным.
-                    </p>
+                    <h2 className={s.cardTitle}>{t('faq.whyTitle')}</h2>
+                    <p className={s.cardText}>{t('faq.whyText')}</p>
                 </div>
 
                 <div className={s.card}>
-                    <h2 className={s.cardTitle}>Модули</h2>
+                    <h2 className={s.cardTitle}>{t('faq.modulesTitle')}</h2>
                     <div className={s.moduleList}>
-                        <div className={s.moduleItem}>
-                            <span className={s.moduleIcon}>📋</span>
-                            <div>
-                                <div className={s.moduleName}>Контракт</div>
-                                <div className={s.moduleDesc}>Ставка, прогресс, прогноз заработка</div>
+                        {MODULES.map(({ key, icon }) => (
+                            <div key={key} className={s.moduleItem}>
+                                <span className={s.moduleIcon}>{icon}</span>
+                                <div>
+                                    <div className={s.moduleName}>{t(`faq.modules.${key}.name`)}</div>
+                                    <div className={s.moduleDesc}>{t(`faq.modules.${key}.desc`)}</div>
+                                </div>
                             </div>
-                        </div>
-                        <div className={s.moduleItem}>
-                            <span className={s.moduleIcon}>💱</span>
-                            <div>
-                                <div className={s.moduleName}>Валюта</div>
-                                <div className={s.moduleDesc}>Конвертер с реальными курсами + история</div>
-                            </div>
-                        </div>
-                        <div className={s.moduleItem}>
-                            <span className={s.moduleIcon}>💸</span>
-                            <div>
-                                <div className={s.moduleName}>Расходы</div>
-                                <div className={s.moduleDesc}>Трекер трат в рейсе, остаток от аванса</div>
-                            </div>
-                        </div>
-                        <div className={s.moduleItem}>
-                            <span className={s.moduleIcon}>📄</span>
-                            <div>
-                                <div className={s.moduleName}>Чек-лист</div>
-                                <div className={s.moduleDesc}>Документы и их сроки, задачи перед рейсом</div>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
 
                 <div className={s.card}>
-                    <h2 className={s.cardTitle}>Установить на телефон</h2>
-                    <p className={s.cardText}>SeaWallet работает как обычное приложение — без App Store и Google Play.</p>
+                    <h2 className={s.cardTitle}>{t('faq.installTitle')}</h2>
+                    <p className={s.cardText}>{t('faq.installText')}</p>
                     <div className={s.installList}>
-                        {steps.map(platform => (
-                            <div key={platform.title} className={s.installBlock}>
-                                <div className={s.installTitle}>{platform.emoji} {platform.title}</div>
+                        {PLATFORMS.map(({ emoji, key }) => (
+                            <div key={key} className={s.installBlock}>
+                                <div className={s.installTitle}>
+                                    {emoji} {t(`faq.${key}.title`)}
+                                </div>
                                 <ol className={s.installSteps}>
-                                    {platform.steps.map((step, i) => (
+                                    {(t(`faq.${key}.steps`, { returnObjects: true }) as string[]).map((step, i) => (
                                         <li key={i} className={s.installStep}>
                                             <span className={s.stepNum}>{i + 1}</span>
                                             <span>{step}</span>
@@ -93,8 +79,8 @@ export default function FaqPage() {
                 </div>
 
                 <div className={s.footer}>
-                    <p className={s.footerText}>Сделано моряком для моряков 🌊</p>
-                    <p className={s.footerVersion}>v1.0.0 MVP</p>
+                    <p className={s.footerText}>{t('faq.footer')}</p>
+                    <p className={s.footerVersion}>{t('faq.version')}</p>
                 </div>
             </div>
         </div>

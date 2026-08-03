@@ -10,6 +10,7 @@ import ChecklistPage from './features/CheckList/CheckList'
 import { Navigate } from 'react-router-dom'
 import  Header  from './components/layout/Header'
 import FaqPage from './features/faq/FaqPage'
+import './lib/i18n'
 
 const saved = localStorage.getItem('sea-theme');
 if (saved) {

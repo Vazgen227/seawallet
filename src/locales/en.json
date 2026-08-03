@@ -1,0 +1,126 @@
+{
+  "nav": {
+    "contract": "Contract",
+    "currency": "Currency",
+    "expenses": "Expenses",
+    "checklist": "Checklist"
+  },
+  "contract": {
+    "newVoyageLabel": "New voyage",
+    "formTitle": "Open contract",
+    "company": "Company",
+    "rank": "Position",
+    "durationDays": "Days",
+    "dailyRate": "Rate/day",
+    "extra": "Additional",
+    "overtimeRate": "Overtime rate",
+    "overtimeHours": "Overtime hours / month",
+    "bonus": "Bonus",
+    "create": "Create contract",
+    "activeLabel": "Active contract",
+    "daysOf": "of",
+    "days": "days",
+    "daysLeft": "Remaining",
+    "start": "Start",
+    "earned": "Earned",
+    "totalContract": "Contract total",
+    "newVoyage": "New voyage",
+    "delete": "Delete"
+  },
+  "expenses": {
+    "newVoyageLabel": "New voyage",
+    "advanceTitle": "Advance",
+    "advanceText": "Enter the advance amount to track your expenses",
+    "amount": "Amount",
+    "saveAdvance": "Save advance",
+    "financeLabel": "Finance",
+    "expensesTitle": "Expenses",
+    "advance": "Advance",
+    "spent": "Spent",
+    "remaining": "Remaining",
+    "addExpenseTitle": "Add expense",
+    "note": "Note (optional)",
+    "addExpense": "Add expense",
+    "history": "History",
+    "empty": "No expenses yet.\nExpenses will appear here.",
+    "categories": {
+      "food": "Food",
+      "sim": "SIM / Internet",
+      "souvenirs": "Souvenirs",
+      "transport": "Transport",
+      "health": "Health",
+      "other": "Other"
+    }
+  },
+  "checklist": {
+    "sectionLabel": "Section",
+    "documentsTitle": "My documents",
+    "docNamePlaceholder": "Document name",
+    "descriptionPlaceholder": "Description (optional)",
+    "addDocument": "Add document",
+    "activeDocuments": "Active documents",
+    "emptyDocuments": "No documents yet",
+    "planLabel": "Planning",
+    "tasksTitle": "Task list",
+    "taskPlaceholder": "Task name",
+    "noContract": "No contract",
+    "addTask": "Add task",
+    "myTasks": "My tasks",
+    "emptyTasks": "No tasks yet",
+    "limitReached": "Free photo limit reached 🔒",
+    "camera": "Camera",
+    "gallery": "Gallery",
+    "deletePhoto": "Delete photo",
+    "categories": {
+      "passport": "Passport",
+      "visa": "Visa",
+      "seamanBook": "Seaman's book",
+      "insurance": "Insurance",
+      "workPermit": "Work permit",
+      "certificates": "Certificates",
+      "other": "Other"
+    },
+    "status": {
+      "pending": "Pending",
+      "accepted": "Accepted",
+      "rejected": "Rejected"
+    }
+  },
+  "faq": {
+    "back": "← Back",
+    "subtitle": "Seafarer's financial assistant",
+    "whatTitle": "What is this?",
+    "whatText": "SeaWallet is a free tool for seafarers. It helps calculate contract salary, convert currencies, track voyage expenses and monitor document expiry dates. No accounts, no servers — all data is stored only on your phone.",
+    "whyTitle": "Why is it free?",
+    "whyText": "Because it should exist. Seafarers deserve proper tools, not Excel spreadsheets and a calculator. The MVP is free forever — additional paid features will be added in the future, but the basics will remain free.",
+    "modulesTitle": "Modules",
+    "installTitle": "Install on phone",
+    "installText": "SeaWallet works like a regular app — without App Store or Google Play.",
+    "footer": "Made by a sailor for sailors 🌊",
+    "version": "v1.0.0 MVP",
+    "modules": {
+      "contract": { "name": "Contract", "desc": "Rate, progress, earnings forecast" },
+      "currency": { "name": "Currency", "desc": "Converter with live rates + history" },
+      "expenses": { "name": "Expenses", "desc": "Voyage expense tracker, advance balance" },
+      "checklist": { "name": "Checklist", "desc": "Documents with expiry dates, pre-voyage tasks" }
+    },
+    "ios": {
+      "title": "iPhone / iPad",
+      "steps": [
+        "Open the app in Safari",
+        "Tap the Share button (square with arrow)",
+        "Select 'Add to Home Screen'",
+        "Tap 'Add'"
+      ]
+    },
+    "android": {
+      "title": "Android",
+      "steps": [
+        "Open the app in Chrome",
+        "Tap the three dots in the top right corner",
+        "Select 'Add to Home Screen'",
+        "Tap 'Add'"
+      ]
+    }
+  }
+}
