@@ -19,36 +19,18 @@ export default function Header() {
             <span className={s.logo}>⚓ SeaWallet</span>
             <button className={s.infoBtn} onClick={() => navigate('/faq')}>ℹ️</button>
 
-
-            <div className={s.themeButtons}>
-
+            <div className={s.rightGroup}>
                 <div className={s.langButtons}>
-                    <button
-                        onClick={() => changeLanguage('ru')}
-                        className={currentLang === 'ru' ? s.langBtnActive : s.langBtn}
-                    >RU</button>
-                    <button
-                        onClick={() => changeLanguage('en')}
-                        className={currentLang === 'en' ? s.langBtnActive : s.langBtn}
-                    >EN</button>
-                    <button
-                        onClick={() => changeLanguage('uk')}
-                        className={currentLang === 'uk' ? s.langBtnActive : s.langBtn}
-                    >UA</button>
+                    <button onClick={() => changeLanguage('ru')} className={currentLang === 'ru' ? s.langBtnActive : s.langBtn}>RU</button>
+                    <button onClick={() => changeLanguage('en')} className={currentLang === 'en' ? s.langBtnActive : s.langBtn}>EN</button>
+                    <button onClick={() => changeLanguage('uk')} className={currentLang === 'uk' ? s.langBtnActive : s.langBtn}>UA</button>
                 </div>
 
-                <button
-                    onClick={() => setTheme('light')}
-                    className={theme === 'light' ? s.btnActive : s.btn}
-                >☀️</button>
-                <button
-                    onClick={() => setTheme('system')}
-                    className={theme === 'system' ? s.btnActive : s.btn}
-                >🌐</button>
-                <button
-                    onClick={() => setTheme('dark')}
-                    className={theme === 'dark' ? s.btnActive : s.btn}
-                >🌙</button>
+                <div className={s.themeButtons}>
+                    <button onClick={() => setTheme('light')} className={theme === 'light' ? s.btnActive : s.btn}>☀️</button>
+                    <button onClick={() => setTheme('system')} className={theme === 'system' ? s.btnActive : s.btn}>🌐</button>
+                    <button onClick={() => setTheme('dark')} className={theme === 'dark' ? s.btnActive : s.btn}>🌙</button>
+                </div>
             </div>
         </header>
     );
