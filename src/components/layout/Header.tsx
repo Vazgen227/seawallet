@@ -7,6 +7,7 @@ export default function Header() {
     const { theme, setTheme } = useThemeStore();
     const navigate = useNavigate();
     const { i18n } = useTranslation();
+    const currentLang = i18n.language;
 
     const changeLanguage = (lang: string) => {
         i18n.changeLanguage(lang);
@@ -18,12 +19,20 @@ export default function Header() {
             <span className={s.logo}>⚓ SeaWallet</span>
             <button className={s.infoBtn} onClick={() => navigate('/faq')}>ℹ️</button>
 
-            <div>
-                <button onClick={() => changeLanguage('ru')}>RU</button>
-                <button onClick={() => changeLanguage('en')}>EN</button>
-                <button onClick={() => changeLanguage('uk')}>UA</button>
+            <div className={s.langButtons}>
+                <button
+                    onClick={() => changeLanguage('ru')}
+                    className={currentLang === 'ru' ? s.langBtnActive : s.langBtn}
+                >RU</button>
+                <button
+                    onClick={() => changeLanguage('en')}
+                    className={currentLang === 'en' ? s.langBtnActive : s.langBtn}
+                >EN</button>
+                <button
+                    onClick={() => changeLanguage('uk')}
+                    className={currentLang === 'uk' ? s.langBtnActive : s.langBtn}
+                >UA</button>
             </div>
-
             <div className={s.themeButtons}>
                 <button
                     onClick={() => setTheme('light')}
