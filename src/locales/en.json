@@ -122,5 +122,15 @@
         "Tap 'Add'"
       ]
     }
+  },
+  "currency": {
+    "title": "Converter",
+    "clearHistory": "Delete",
+    "rate": "Course",
+    "mainTitle": "Exchange Rates",
+    "imGivingAway": "I'm giving away",
+    "imReceiving": "I'm receiving",
+    "Convert": "Convert",
+    "instructions": "Enter the amount and select the currencies to see the current exchange rate"
   }
 }
