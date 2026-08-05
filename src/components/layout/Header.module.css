@@ -5,6 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 12px;
     padding: 12px 20px;
     background: rgba(10, 79, 85, 0.85);
     backdrop-filter: blur(12px);
@@ -18,6 +19,44 @@
     font-weight: 700;
     color: #ffffff;
     letter-spacing: -0.02em;
+    white-space: nowrap;
+}
+
+.headerRight {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+
+.infoBtn {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.infoBtn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.infoBtn:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 2px;
+}
+
+/* На desktop это обычная строка */
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .themeButtons {
@@ -49,28 +88,17 @@
     background: rgba(255, 255, 255, 0.1);
 }
 
+.btn:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 2px;
+}
+
 .btnActive {
     composes: btn;
     background: rgba(255, 255, 255, 0.15);
     opacity: 1;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
-
-.infoBtn {
-    width: 32px;
-    height: 32px;
-    border-radius: 10px;
-    border: none;
-    background: rgba(255,255,255,0.1);
-    cursor: pointer;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s;
-    margin-right: 8px;
-}
-.infoBtn:hover { background: rgba(255,255,255,0.2); }
 
 .langButtons {
     display: flex;
@@ -100,6 +128,11 @@
     color: #ffffff;
 }
 
+.langBtn:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 2px;
+}
+
 .langBtnActive {
     composes: langBtn;
     background: rgba(255, 255, 255, 0.15);
@@ -107,8 +140,130 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.rightGroup {
-    display: flex;
+/* Burger button: на desktop скрыт */
+.burgerButton {
+    display: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.burgerButton:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.burgerButton:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 2px;
+}
+
+.burgerBox {
+    position: relative;
+    display: block;
+    width: 18px;
+    height: 12px;
+}
+
+.burgerLine {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    border-radius: 999px;
+    background: #ffffff;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.line1 {
+    top: 0;
+}
+
+.line2 {
+    top: 5px;
+}
+
+.line3 {
+    top: 10px;
+}
+
+/* Крестик */
+.headerOpen .line1 {
+    transform: translateY(5px) rotate(45deg);
+}
+
+.headerOpen .line2 {
+    opacity: 0;
+}
+
+.headerOpen .line3 {
+    transform: translateY(-5px) rotate(-45deg);
+}
+
+/* Mobile */
+@media (max-width: 425px) {
+    .controls {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 12px;
+        right: 12px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding: 12px;
+        background: rgba(10, 79, 85, 0.95);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 16px;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+    }
+
+    .headerOpen .controls {
+        display: flex;
+        animation: headerMenuIn 0.18s ease;
+    }
+
+    /* Чтобы языки и темы растягивались красиво */
+    .controls > * {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .controls > * button {
+        width: 100%;
+        min-height: 36px;
+    }
+
+    .burgerButton {
+        display: flex;
+    }
+}
+
+@keyframes headerMenuIn {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .headerOpen .controls {
+        animation: none;
+    }
+
+    .burgerLine {
+        transition: none;
+    }
 }
