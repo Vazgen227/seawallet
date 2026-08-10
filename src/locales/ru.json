@@ -25,7 +25,8 @@
     "earned": "Заработано",
     "totalContract": "Итого по контракту",
     "newVoyage": "Новый рейс",
-    "delete": "Удалить"
+    "delete": "Удалить",
+    "endDate": "Конец рейса"
   },
   "expenses": {
     "newVoyageLabel": "Новый рейс",
@@ -74,11 +75,14 @@
     "categories": {
       "passport": "Паспорт",
       "visa": "Виза",
-      "seamanBook": "Морская книжка",
+      "seamanBook": "Послужная книга ",
       "insurance": "Страховка",
       "workPermit": "Разрешение на работу",
       "certificates": "Сертификаты",
-      "other": "Другое"
+      "other": "Другое",
+      "internationalPassport": "Загран паспорт",
+      "medicalBoard": "Мед комиссия",
+      "contract": "Контракт"
     },
     "status": {
       "pending": "Ожидание",

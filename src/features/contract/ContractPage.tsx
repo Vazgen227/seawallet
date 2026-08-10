@@ -8,6 +8,7 @@ import {
   progressPercent,
   earnedToDate,
   projectedTotal,
+  contractEndDate
 } from "./ContractMath";
 import s from "./ContractPage.module.css";
 
@@ -224,8 +225,8 @@ export default function ContractPage() {
                 </p>
               </div>
               <div className={s.textRight}>
-                <p className={s.statLabel}>{t('contract.start')}</p>
-                <p className={s.statValueSmall}>{current.startDate}</p>
+                <p className={s.statLabel}>{t('contract.endDate')}</p>
+                <p className={s.statValueSmall}>{current ? contractEndDate(current) : ''}</p>
               </div>
             </div>
 

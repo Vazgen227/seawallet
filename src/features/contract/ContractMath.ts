@@ -51,3 +51,13 @@ export const projectedTotal = (contract: Contract) => {
     
     return dailyRate * durationDays + overtimeTotal(contract) + (bonus ?? 0)
 }
+
+export const contractEndDate = (contract: Contract): string => {
+    const start = new Date(contract.startDate);
+    start.setDate(start.getDate() + contract.durationDays);
+    return start.toLocaleDateString('ru-RU', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    });
+}

@@ -25,7 +25,8 @@
     "earned": "Зароблено",
     "totalContract": "Підсумок контракту",
     "newVoyage": "Новий рейс",
-    "delete": "Видалити"
+    "delete": "Видалити",
+    "endDate": "Кінець рейсу"
   },
   "expenses": {
     "newVoyageLabel": "Новий рейс",
@@ -78,7 +79,10 @@
       "insurance": "Страховка",
       "workPermit": "Дозвіл на роботу",
       "certificates": "Сертифікати",
-      "other": "Інше"
+      "other": "Інше",
+      "internationalPassport": "Закордонний паспорт",
+      "medicalBoard": "Медична комісія",
+      "contract": "Контракт"
     },
     "status": {
       "pending": "Очікування",

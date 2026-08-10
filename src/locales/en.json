@@ -25,7 +25,8 @@
     "earned": "Earned",
     "totalContract": "Contract total",
     "newVoyage": "New voyage",
-    "delete": "Delete"
+    "delete": "Delete",
+    "endDate": "End date"
   },
   "expenses": {
     "newVoyageLabel": "New voyage",
@@ -78,7 +79,10 @@
       "insurance": "Insurance",
       "workPermit": "Work permit",
       "certificates": "Certificates",
-      "other": "Other"
+      "other": "Other",
+      "internationalPassport": "International Passport",
+      "medicalBoard": "Medical Board",
+      "contract": "Contract"
     },
     "status": {
       "pending": "Pending",

@@ -89,12 +89,11 @@ export default function ChecklistPage() {
                                 onChange={e => setNewCategory(e.target.value as DocumentCategory)}
                             >
                                 <option value="passport">{t('checklist.categories.passport')}</option>
-                                <option value="visa">{t('checklist.categories.visa')}</option>
                                 <option value="seamanBook">{t('checklist.categories.seamanBook')}</option>
-                                <option value="insurance">{t('checklist.categories.insurance')}</option>
-                                <option value="workPermit">{t('checklist.categories.workPermit')}</option>
                                 <option value="certificates">{t('checklist.categories.certificates')}</option>
-                                <option value="other">{t('checklist.categories.other')}</option>
+                                <option value="internationalPassport">{t('checklist.categories.internationalPassport')}</option>
+                                <option value="medicalBoard">{t('checklist.categories.medicalBoard')}</option>
+                                <option value="contract">{t('checklist.categories.contract')}</option>
                             </select>
                             <input
                                 className={styles.input}
