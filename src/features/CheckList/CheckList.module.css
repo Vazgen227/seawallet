@@ -60,6 +60,8 @@
     gap: 12px;
     width: 100%;
     overflow: hidden;
+    padding-left: 0.7vw;
+    height: 65px;
 }
 
 /* ===== ИНПУТЫ И СЕЛЕКТЫ ===== */
