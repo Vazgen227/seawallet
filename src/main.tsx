@@ -8,8 +8,9 @@ import ExpensesPage from './features/expenses/ExpensesPage'
 import BottomNav from './components/layout/BottomNav'
 import ChecklistPage from './features/CheckList/CheckList'
 import { Navigate } from 'react-router-dom'
-import  Header  from './components/layout/Header'
+import Header from './components/layout/Header'
 import FaqPage from './features/faq/FaqPage'
+import FeedbackButton from './components/layout/FeedbackButton'
 import './lib/i18n'
 
 const saved = localStorage.getItem('sea-theme');
@@ -23,16 +24,17 @@ if (saved) {
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-    <BottomNav />
-        <Header/>
-        <Routes>
-            <Route path="/" element={<Navigate to="/contract" replace />} />
-            <Route path="/faq" element={<FaqPage />} />
-            <Route path="/contract" element={<ContractPage />} />
-            <Route path="/currency" element={<CurrencyPage />} />
-            <Route path="/expenses" element={<ExpensesPage />} />
-            <Route path="/checklist" element={<ChecklistPage />} /> 
-        </Routes>
+      <BottomNav />
+      <Header />
+      <FeedbackButton />
+      <Routes>
+        <Route path="/" element={<Navigate to="/contract" replace />} />
+        <Route path="/faq" element={<FaqPage />} />
+        <Route path="/contract" element={<ContractPage />} />
+        <Route path="/currency" element={<CurrencyPage />} />
+        <Route path="/expenses" element={<ExpensesPage />} />
+        <Route path="/checklist" element={<ChecklistPage />} /> 
+      </Routes>
     </BrowserRouter>
   </StrictMode>,
 )

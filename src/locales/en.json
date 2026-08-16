@@ -136,5 +136,9 @@
     "imReceiving": "I'm receiving",
     "Convert": "Convert",
     "instructions": "Enter the amount and select the currencies to see the current exchange rate"
+  },
+  "feedback": {
+    "label": "Feedback",
+    "contact": "Contact on Telegram"
   }
 }
