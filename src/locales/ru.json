@@ -100,6 +100,9 @@
     "modulesTitle": "Модули",
     "installTitle": "Установить на телефон",
     "installText": "SeaWallet работает как обычное приложение — без App Store и Google Play.",
+    "feedbackTitle": "💡 Развитие проекта и обратная связь",
+    "feedbackText": "SeaWallet активно развивается. Есть идея новой функции, предложение или нашёл баг? Напиши напрямую разработчику в Telegram — мы прислушиваемся к каждому отзыву!",
+    "feedbackBtn": "Написать разработчику в Telegram",
     "footer": "Сделано моряком для моряков 🌊",
     "version": "v1.0.0 MVP",
     "modules": {
@@ -138,7 +141,9 @@
     "instructions": "Введите сумму и выберите валюты, чтобы узнать актуальный курс"
   },
   "feedback": {
-    "label": "Связь",
-    "contact": "Написать в Telegram"
+    "button": "Есть идея? Напиши!",
+    "bubble": "💡 Помоги улучшить SeaWallet! Твоё мнение важно",
+    "bubbleAction": "Написать",
+    "contact": "Написать разработчику в Telegram"
   }
 }

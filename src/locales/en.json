@@ -100,6 +100,9 @@
     "modulesTitle": "Modules",
     "installTitle": "Install on phone",
     "installText": "SeaWallet works like a regular app — without App Store or Google Play.",
+    "feedbackTitle": "💡 Project Development & Feedback",
+    "feedbackText": "SeaWallet is actively evolving. Have an idea for a new feature, suggestion, or found a bug? Message the developer directly on Telegram — we listen to every user!",
+    "feedbackBtn": "Message Developer on Telegram",
     "footer": "Made by a sailor for sailors 🌊",
     "version": "v1.0.0 MVP",
     "modules": {
@@ -138,7 +141,9 @@
     "instructions": "Enter the amount and select the currencies to see the current exchange rate"
   },
   "feedback": {
-    "label": "Feedback",
-    "contact": "Contact on Telegram"
+    "button": "Have an idea? Write us!",
+    "bubble": "💡 Help improve SeaWallet! Your feedback matters",
+    "bubbleAction": "Message",
+    "contact": "Message developer on Telegram"
   }
 }

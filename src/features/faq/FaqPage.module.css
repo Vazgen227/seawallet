@@ -110,6 +110,70 @@
     flex-shrink: 0;
 }
 
+/* ===== КАРТОЧКА ОБРАТНОЙ СВЯЗИ ===== */
+.feedbackCard {
+    background: linear-gradient(145deg, #ffffff, #F5EEE2);
+    border-radius: 28px;
+    padding: 24px;
+    box-shadow: 0 16px 32px -8px rgba(0,0,0,0.25);
+    border: 1.5px solid rgba(34, 158, 217, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.feedbackTitle {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #048390;
+    margin: 0;
+}
+
+.feedbackText {
+    font-size: 14.5px;
+    color: #5c4a3a;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.feedbackTgBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 52px;
+    padding: 0 20px;
+    background: linear-gradient(135deg, #2AABEE 0%, #229ED9 50%, #0088CC 100%);
+    color: #ffffff;
+    border-radius: 16px;
+    text-decoration: none;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    box-shadow: 0 10px 24px -4px rgba(34, 158, 217, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    margin-top: 4px;
+}
+
+.feedbackTgBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px -4px rgba(34, 158, 217, 0.65);
+    color: #ffffff;
+}
+
+.feedbackTgBtn:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+.tgIcon {
+    width: 22px;
+    height: 22px;
+    fill: #ffffff;
+    flex-shrink: 0;
+}
+
 .footer {
     text-align: center;
     padding: 16px 0 8px;
