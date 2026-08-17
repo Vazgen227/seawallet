@@ -1,42 +1,43 @@
 .wrapper {
   position: fixed;
-  bottom: calc(108px + env(safe-area-inset-bottom, 0px));
+  bottom: calc(88px + env(safe-area-inset-bottom, 0px));
   right: max(16px, calc((100vw - 448px) / 2 + 16px));
   z-index: 45;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 8px;
+  gap: 6px;
   pointer-events: none;
 }
 
 @media (max-width: 480px) {
   .wrapper {
     right: 16px;
+    bottom: calc(86px + env(safe-area-inset-bottom, 0px));
   }
 }
 
-/* ===== ВСплывающая подсказка ===== */
+/* ===== Всплывающая подсказка ===== */
 .speechBubble {
   pointer-events: auto;
   position: relative;
-  max-width: 260px;
+  max-width: 220px;
   background: var(--card-bg, #ffffff);
-  border-radius: 16px;
-  padding: 10px 32px 10px 14px;
+  border-radius: 14px;
+  padding: 8px 26px 8px 12px;
   box-shadow: 
-    0 12px 28px -6px rgba(0, 0, 0, 0.25),
-    0 4px 10px rgba(0, 0, 0, 0.1),
+    0 8px 20px -4px rgba(0, 0, 0, 0.25),
+    0 2px 6px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
   border: 1px solid var(--border-strong, rgba(4, 131, 144, 0.25));
-  animation: bubblePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation: bubblePop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   transform-origin: bottom right;
 }
 
 @keyframes bubblePop {
   0% {
     opacity: 0;
-    transform: translateY(8px) scale(0.9);
+    transform: translateY(6px) scale(0.9);
   }
   100% {
     opacity: 1;
@@ -51,7 +52,7 @@
 
 .bubbleText {
   font-family: 'Inter', sans-serif;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   line-height: 1.35;
   color: var(--text-primary, #048390);
@@ -60,10 +61,10 @@
 
 .bubbleArrow {
   position: absolute;
-  bottom: -6px;
-  right: 24px;
-  width: 12px;
-  height: 12px;
+  bottom: -5px;
+  right: 20px;
+  width: 10px;
+  height: 10px;
   background: var(--card-bg, #ffffff);
   border-right: 1px solid var(--border-strong, rgba(4, 131, 144, 0.25));
   border-bottom: 1px solid var(--border-strong, rgba(4, 131, 144, 0.25));
@@ -72,15 +73,15 @@
 
 .closeBubbleBtn {
   position: absolute;
-  top: 6px;
-  right: 6px;
-  width: 20px;
-  height: 20px;
+  top: 5px;
+  right: 5px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   border: none;
   background: rgba(0, 0, 0, 0.06);
   color: var(--text-muted, #718096);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
   cursor: pointer;
   display: flex;
@@ -99,16 +100,16 @@
   pointer-events: auto;
   display: flex;
   align-items: center;
-  gap: 10px;
-  height: 50px;
-  padding: 0 18px 0 10px;
+  gap: 8px;
+  height: 42px;
+  padding: 0 14px 0 8px;
   background: linear-gradient(135deg, #2AABEE 0%, #229ED9 45%, #0088CC 100%);
   color: #ffffff;
   border-radius: 9999px;
   text-decoration: none;
   box-shadow: 
-    0 10px 24px -4px rgba(34, 158, 217, 0.55),
-    0 4px 10px rgba(0, 0, 0, 0.15),
+    0 8px 20px -4px rgba(34, 158, 217, 0.5),
+    0 3px 8px rgba(0, 0, 0, 0.12),
     inset 0 1px 1px rgba(255, 255, 255, 0.5);
   border: 1.5px solid rgba(255, 255, 255, 0.35);
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -118,10 +119,10 @@
 }
 
 .button:hover {
-  transform: translateY(-3px) scale(1.03);
+  transform: translateY(-2px) scale(1.03);
   box-shadow: 
-    0 16px 36px -6px rgba(34, 158, 217, 0.7),
-    0 6px 14px rgba(0, 0, 0, 0.2),
+    0 12px 28px -4px rgba(34, 158, 217, 0.65),
+    0 4px 10px rgba(0, 0, 0, 0.18),
     inset 0 1px 2px rgba(255, 255, 255, 0.7);
   color: #ffffff;
 }
@@ -129,7 +130,7 @@
 .button:active {
   transform: translateY(1px) scale(0.97);
   box-shadow: 
-    0 4px 12px -2px rgba(34, 158, 217, 0.4),
+    0 4px 10px -2px rgba(34, 158, 217, 0.4),
     inset 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
@@ -138,8 +139,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   background: rgba(255, 255, 255, 0.22);
   border-radius: 50%;
   flex-shrink: 0;
@@ -154,8 +155,8 @@
   position: absolute;
   top: -2px;
   right: -2px;
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   background-color: #22c55e;
   border: 2px solid #ffffff;
   border-radius: 50%;
@@ -167,7 +168,7 @@
     box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
   }
   70% {
-    box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+    box-shadow: 0 0 0 7px rgba(34, 197, 94, 0);
   }
   100% {
     box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
@@ -175,8 +176,8 @@
 }
 
 .tgIcon {
-  width: 20px;
-  height: 20px;
+  width: 17px;
+  height: 17px;
   fill: #ffffff;
 }
 
@@ -187,7 +188,7 @@
 
 .mainLabel {
   font-family: 'Space Grotesk', 'Inter', sans-serif;
-  font-size: 13.5px;
+  font-size: 12.5px;
   font-weight: 700;
   letter-spacing: 0.01em;
   white-space: nowrap;
@@ -196,10 +197,10 @@
 
 @media (max-width: 360px) {
   .mainLabel {
-    font-size: 12px;
+    font-size: 11.5px;
   }
   .button {
-    padding: 0 14px 0 8px;
-    height: 46px;
+    padding: 0 10px 0 6px;
+    height: 38px;
   }
 }
